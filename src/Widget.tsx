@@ -78,21 +78,10 @@ export default function WhatsAppWidget({
   const [mounted, setMounted] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  // Only initialize on client-side
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Focus input field when chat is opened
-  useEffect(() => {
-    if (isOpen && inputRef.current) {
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 300);
-    }
-  }, [isOpen]);
-
-  // Only render client-side
   if (!mounted) return null;
 
   const handleWhatsAppClick = () => {
