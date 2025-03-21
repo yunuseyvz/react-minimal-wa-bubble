@@ -196,7 +196,7 @@ export default function WhatsAppWidget({
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-white text-lg font-semibold"
                          style={{ backgroundColor: primaryColor }}>
-                      {businessName.charAt(0)}
+                      {businessName.charAt(0).toUpperCase()}
                     </div>
                   )}
                 </motion.div>
