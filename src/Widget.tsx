@@ -66,7 +66,6 @@ export default function WhatsAppWidget({
   position = "bottom-right",
   businessName,
   businessLogo,
-  primaryColor = "#25D366", // WhatsApp green by default
   welcomeMessage = "Hello! How can I help you today?",
   inputPlaceholder = "Type a message...",
   initiallyOpen = false,
@@ -151,15 +150,6 @@ export default function WhatsAppWidget({
     close: { rotate: 180, scale: 1 }
   };
 
-  // CSS variables for theming
-  const buttonStyle = {
-    backgroundColor: primaryColor,
-  };
-
-  const headerStyle = {
-    backgroundColor: primaryColor,
-  };
-
   return (
     <div className={`fixed z-50 ${positionClasses[position]} flex flex-col items-end ${className}`}>
       <AnimatePresence>
@@ -169,14 +159,13 @@ export default function WhatsAppWidget({
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="mb-4 overflow-hidden rounded-2xl shadow-xl w-[320px] backdrop-blur-2xl bg-white/60 dark:bg-gray-900/60"
+            className="mb-4 overflow-hidden rounded-2xl shadow-2xl w-[320px] backdrop-blur-2xl bg-white/600 dark:bg-gray-900/60 antialiased"
           >
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="flex items-center p-3 text-white backdrop-blur-2xl"
-              style={headerStyle}
+              className="flex items-center p-3 text-white backdrop-blur-2xl bg-white/10 dark:bg-gray-900/10"
             >
               <div className="flex items-center space-x-3">
                 <motion.div 
@@ -194,8 +183,7 @@ export default function WhatsAppWidget({
                       className="w-full h-full object-cover scale-110"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-white text-lg font-semibold"
-                         style={{ backgroundColor: primaryColor }}>
+                    <div className="w-full h-full flex items-center justify-center text-white text-lg font-semibold">
                       {businessName.charAt(0).toUpperCase()}
                     </div>
                   )}
@@ -276,7 +264,6 @@ export default function WhatsAppWidget({
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.9 }}
                   className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full transition-all hover:brightness-95"
-                  style={buttonStyle}
                   aria-label="Send message on WhatsApp"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
@@ -293,8 +280,7 @@ export default function WhatsAppWidget({
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)" }}
         whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg backdrop-blur-xl"
-        style={buttonStyle}
+        className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg backdrop-blur-xl bg-green-500"
         aria-label={isOpen ? "Close chat" : "Open WhatsApp chat"}
       >
         <motion.div 
