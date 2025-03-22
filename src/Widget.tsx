@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import "./index.css";
 
 export interface WhatsAppWidgetProps {
   /**
@@ -263,7 +264,7 @@ export default function WhatsAppWidget({
                   onClick={handleWhatsAppClick}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.9 }}
-                  className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full transition-all hover:brightness-95"
+                  className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full transition-all hover:brightness-95 bg-green-500 hover:cursor-pointer"
                   aria-label="Send message on WhatsApp"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
@@ -280,7 +281,7 @@ export default function WhatsAppWidget({
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)" }}
         whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg backdrop-blur-xl bg-green-500"
+        className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg backdrop-blur-xl bg-green-500 hover:cursor-pointer"
         aria-label={isOpen ? "Close chat" : "Open WhatsApp chat"}
       >
         <motion.div 
